@@ -1,5 +1,5 @@
 {
-  "backend": "ollama",
+  "backend": "llamafactory",
   "ollama": {
     "host": "http://127.0.0.1:11434",
     "model": "glm-ocr:latest",
@@ -15,7 +15,7 @@
     "prompt": "Text Recognition:",
     "max_image_side": 1600,
     "max_tokens": 768,
-    "adapter": "",
+    "adapter": "third_party/LLaMA-Factory/saves/glm-ocr/lora/sft",
     "finetuning_type": "lora"
   }
 }
