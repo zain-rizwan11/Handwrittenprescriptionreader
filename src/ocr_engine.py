@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from platform import processor
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -87,7 +88,9 @@ def _ocr_direct(image_path: Path) -> str:
         repetition_penalty=1.3,
         no_repeat_ngram_size=3,
     )
-    text = processor.decode(output[0], skip_special_tokens=True)
+    input_len = inputs["input_ids"].shape[1] #for slicing off the prompt tokens from the generated output
+    generated_ids = output[:, input_len:]    #^^^
+    text = processor.decode(generated_ids[0], skip_special_tokens=True)
     return text.strip()
 
 
