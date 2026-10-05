@@ -7,7 +7,7 @@
       },
       {
         "role": "assistant",
-        "content": "Rx.\n23y10 M prevened e\n40. fever < high grade\nfew awuys.\nno painer - generalised.\nlong.\nAcr:\nCBE\nMPCT\nDengue NSI.\nBES\nΔ = acute kndn\nfever.\nRx:\nTab pancadol\n2+ 2 + 2.\nTab wigix\n0+0+1\nSyp acetylc\n2 +2 + {2} \\sqrt{5}\nFollow up in DOD E advised\nLabor."
+        "content": "Rx.\n23y10 M prevened e\n40. fever < high grade\nfor awhile with chills.\nbodyaches - generalised.\ncough\nAdr:\nCBC\nMPICT\nDengue NS1.\nBES\nΔ = acute viral\nfever.\nRx:\nTab panadol\n2+2+2.\nTab rigix\n0+0+1\nSyp acefyle\n2+2+2 tsp\nFollow up in OPD E admitted\nLabs."
       }
     ],
     "images": [
@@ -22,7 +22,7 @@
       },
       {
         "role": "assistant",
-        "content": "Rx\n$\\textcircled{1}$ Urine D/IR\n$\\textCircled{}$ Urine efs"
+        "content": "Rx\n1 Urine D/IR\n2 Urine C/S"
       }
     ],
     "images": [
