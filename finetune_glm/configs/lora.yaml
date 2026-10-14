@@ -1,5 +1,7 @@
 ### model
-model_name_or_path: zai-org/GLM-OCR
+model_name_or_path: zai-org/GLM-OCR #change this to your local model path if you have it downloaded
+#setting this changes the base model loRa will train on
+#full path needed for local model
 trust_remote_code: true
 
 ### method
@@ -8,7 +10,7 @@ do_train: true
 finetuning_type: lora
 lora_rank: 8
 lora_alpha: 16
-lora_dropout: 0.05
+lora_dropout: 0.05 #overfits if low (0.05->0.1)
 lora_target: all
 # Keep vision encoder stable while adapting to prescription text
 freeze_vision_tower: true
@@ -16,7 +18,7 @@ freeze_multi_modal_projector: true
 
 ### dataset
 # Built from data/glm_finetune/labels.csv by prepare_finetune.py
-dataset: prescriptions
+dataset: prescriptions #what dataset to use for fine-tuning
 template: glm_ocr
 cutoff_len: 2048
 preprocessing_num_workers: 2
@@ -24,27 +26,27 @@ dataloader_num_workers: 0
 overwrite_cache: true
 
 ### output
-output_dir: saves/glm-ocr/lora/sft
+output_dir: saves/glm-ocr/lora/updated_train #where it will save in llamafactory
 logging_steps: 5
-save_steps: 5 #changed from 50 to 5
+save_steps: 25 #changed from 50 to 5
 plot_loss: true
-overwrite_output_dir: true
+overwrite_output_dir: true #confirms overwriting the training not appending
 save_only_model: false
 report_to: none
 
 ### train
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
-learning_rate: 1.0e-4
+learning_rate: 1.0e-4 # (default=1.0e-4, change if needed)
 num_train_epochs: 5
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
 ddp_timeout: 180000000
-resume_from_checkpoint: null
+resume_from_checkpoint: null #change only if you want to build from last training
 
 ### eval
 val_size: 0.1
 per_device_eval_batch_size: 1
 eval_strategy: steps
-eval_steps: 5  #changed from 50 to 5 (since less dataset)
+eval_steps: 25  #changed from 50 to 5 (since less dataset)

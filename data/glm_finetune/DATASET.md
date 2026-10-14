@@ -1,6 +1,6 @@
 # GLM-OCR ShareGPT dataset
 
-- samples: 61
+- samples: 508
 - file: prescriptions.json
 - images: prescription_images/
 - LLaMA-Factory dataset key: prescriptions

@@ -15,7 +15,7 @@
     "prompt": "Text Recognition:",
     "max_image_side": 1600,
     "max_tokens": 768,
-    "adapter": "third_party/LLaMA-Factory/saves/glm-ocr/lora/sft",
+    "adapter": "third_party/LLaMA-Factory/saves/glm-ocr/lora/updated_train",
     "finetuning_type": "lora"
   }
 }

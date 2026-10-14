@@ -34,7 +34,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
-DEFAULT_DIR = ROOT / "data" / "glm_finetune"
+DEFAULT_DIR = ROOT / "data" / "glm_finetune" #where to find images/labels.csv and where to write output JSON/images
 DEFAULT_IMAGES = DEFAULT_DIR / "images"
 DEFAULT_LABELS = DEFAULT_DIR / "labels.csv"
 DEFAULT_OUT_JSON = DEFAULT_DIR / "prescriptions.json"

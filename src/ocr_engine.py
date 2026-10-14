@@ -13,9 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 _MODEL = None
 _PROCESSOR = None
 
-MODEL_ID = "zai-org/GLM-OCR"
+#MODEL_ID = "zai-org/GLM-OCR"
+MODEL_ID = str(ROOT / "models" / "glm-ocr-updated-train3") #for local model path
 PROMPT = "Text Recognition:"
-MAX_NEW_TOKENS = 512
+MAX_NEW_TOKENS = 2048
 
 
 def get_backend() -> str:
@@ -85,8 +86,7 @@ def _ocr_direct(image_path: Path) -> str:
     output = model.generate(
         **inputs,
         max_new_tokens=MAX_NEW_TOKENS,
-        repetition_penalty=1.3,
-        no_repeat_ngram_size=3,
+        repetition_penalty=1.05,
     )
     input_len = inputs["input_ids"].shape[1] #for slicing off the prompt tokens from the generated output
     generated_ids = output[:, input_len:]    #^^^

@@ -32,6 +32,7 @@ REQ = ROOT / "finetune_glm" / "requirements-finetune.txt"
 CONFIGS = {
     "lora": ROOT / "finetune_glm" / "configs" / "lora.yaml",
     "full": ROOT / "finetune_glm" / "configs" / "full.yaml",
+    "pretrain": ROOT / "finetune_glm" / "configs" / "lora_pretrain.yaml"
 }
 LABELS = ROOT / "data" / "glm_finetune" / "labels.csv"
 LOCAL_JSON = ROOT / "data" / "glm_finetune" / "prescriptions.json"
@@ -470,7 +471,7 @@ def main() -> None:
     p_prep.set_defaults(func=cmd_prepare)
 
     p_train = sub.add_parser("train", help="Train from labels.csv with LLaMA-Factory")
-    p_train.add_argument("--mode", choices=["lora", "full"], default="lora")
+    p_train.add_argument("--mode", choices=["lora", "full", "pretrain"], default="lora")
     p_train.add_argument("--gpu", default="0", help="CUDA_VISIBLE_DEVICES value")
     p_train.add_argument(
         "--cpu",
